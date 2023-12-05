@@ -14,4 +14,9 @@ export class EmployeesService {
   getAllEmployees() : Observable<Employee[]> {
     return this.HttpClient.get<Employee[]>(this.baseApiUrl + '/api/employees');
   }
+
+  addEmployee(addAEmployee : Employee) : Observable<Employee> {
+    addAEmployee.id = '00000000-0000-0000-0000-000000000000';
+    return this.HttpClient.post<Employee>(this.baseApiUrl + '/api/employees', addAEmployee);
+  }
 }
