@@ -19,4 +19,17 @@ export class EmployeesService {
     addAEmployee.id = '00000000-0000-0000-0000-000000000000';
     return this.HttpClient.post<Employee>(this.baseApiUrl + '/api/employees', addAEmployee);
   }
+
+  getParticularEmployee(id: string) : Observable<Employee> {
+    return this.HttpClient.get<Employee>(this.baseApiUrl+'/api/employees/'+id)
+  }
+
+  updateEmployee(id : string, updateEmployeeData : Employee) : Observable<Employee> {
+    return this.HttpClient.put<Employee>(this.baseApiUrl + '/api/employees/' + id, updateEmployeeData);
+  }
+
+  deleteEmployee(id: string) : Observable<Employee> {
+    debugger;
+    return this.HttpClient.delete<Employee>(this.baseApiUrl+ "/api/employees/" + id);
+  }
 }
