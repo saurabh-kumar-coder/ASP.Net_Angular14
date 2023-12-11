@@ -14,12 +14,14 @@ namespace FullStack.API.Controllers
         {
             this.Context = fullStackDbContext;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
             var employees = await Context.Employees.ToListAsync();
             return Ok(employees);
         }
+
         [HttpPost]
         public async Task<IActionResult> InsertEmployee([FromBody]Employee employee)
         {
